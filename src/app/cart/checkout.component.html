@@ -1,0 +1,80 @@
+<div class="row">
+    <div class="form-group clearfix">
+      <div class="col-12">
+        <h3>Checkout</h3>
+      </div>
+    </div>
+  </div>
+  <form>
+    <div class="row">
+      <div class="col-6">
+        <div class="form-group">
+          <label for="name">Your name</label>
+
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+            <input type="text" class="form-control" placeholder="Name" id="name" name="name"
+              [ngModel]="user.username">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="address">Delivery address</label>
+
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-map"></i></span>
+            <input type="text" class="form-control" placeholder="Address" id="address" name="address"
+              [ngModel]="user.address1">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Contact phone</label>
+
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+            <input type="text" class="form-control" placeholder="Phone" id="phone" name="phone"
+              [ngModel]="user.phoneNumber">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="mail">Your e-mail</label>
+
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+            <input type="text" class="form-control" placeholder="E-mail" id="mail" name="mail"
+              [ngModel]="user.emailId">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <div class="order-view">
+          <div class="row cart-row mt-1 border-1" *ngFor="let cartProduct of cart.products">
+            <div class="col-xs-2 col-sm-4 text-center">
+              <img class="checkout-item__image" [src]="cartProduct.product.imageUrl" alt="" />
+            </div>
+            <div class="col-sm-8">
+              <div class=" no-padding checkout-item__title">{{ cartProduct.product.name }}</div>
+              <div class="no-padding checkout-item__price">
+                <span class="flex-start">{{ cartProduct.quantity }} items </span>
+                <span class="flex-end">{{ cartProduct.amount | currency }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="checkout__total d-flex justify-content-center">Total: <div class="badge badge-primary ">
+            {{cart.totalCartValue | currency}}</div>
+        </div>
+
+      </div>
+
+      <div class="col-sm-12">
+        <div class="checkout__order-actions">
+          <button type="submit" class="btn btn-success" (click)="confirm();">Confirm order</button>
+          <a class="btn btn-secondary text-white" [routerLink]="['/store/cart']">Edit order</a>
+        </div>
+      </div>
+    </div>
+  </form>

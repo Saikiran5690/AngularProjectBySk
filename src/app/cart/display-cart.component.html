@@ -1,0 +1,42 @@
+<table class="table table-bordered"  *ngIf="cart.products.length!=0">
+    <tr>
+        <th></th>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Total</th>
+    </tr>
+    <tr *ngFor="let cp of cart.products;let i=index;">
+        <td>{{i+1}}</td>
+        <td><img [src]="cp.product.imageUrl" width="100" height="100" alt=""></td>
+        <td>{{cp.product.name}}</td>
+        <td>
+            <div class="input-group mb-3">
+                <button class="input-group-text" (click)="changeQuantity(i,-1);">-</button>
+                <input type="text" class="form-control" [value]="cp.quantity" min="1">
+                <button class="input-group-text" (click)="changeQuantity(i,1);">+</button>
+            </div>
+        </td>
+        <td>{{cp.product.price}}</td>
+        <td>{{cp.totalAmount}}</td>
+        <td><button class="btn btn-danger" (click)="deleteFromCart(i);">X</button></td>
+    </tr>
+    <tr>
+        <td class="text-align-right" colspan="5">
+            Total
+        </td>
+        <td>
+            {{cart.totalCartValue}}
+        </td>
+        <div class="btn-group">
+            <a class="btn btn-success btn-lg"
+                   [routerLink]="['/checkout']">Checkout</a>
+        </div>
+    </tr>
+</table>
+
+<div *ngIf="cart.products.length==0">
+    <img src="https://hotemoji.com/images/emoji/c/tgkksj18626oc.png" >
+    Cart is empty
+</div>

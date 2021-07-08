@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-3">
+        <div class="card">
+            <img class="card-img-top  img-thumbnail p-3 round-3" [src]="currentProduct.imageUrl" alt="">
+            <div class="card-body">
+                <button class="btn btn-info text-white" (click)="addToCart();">Add to Cart</button> &nbsp;
+                <button class="btn btn-info text-white">Add to wishlist</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-9">
+        <ul class="list-group">
+            <li class="list-group-item">Name : {{currentProduct.name}}</li>
+            <li class="list-group-item">Price : {{currentProduct.price}}</li>
+            <li class="list-group-item">Quantity : {{currentProduct.quantity}}</li>
+            <li class="list-group-item">Description : {{currentProduct.description}}</li>
+            
+            <li class="list-group-item">First Available : {{currentProduct.added|date:"dd-MMM-yyyy"}}</li>
+        </ul>
+    </div>
+</div>

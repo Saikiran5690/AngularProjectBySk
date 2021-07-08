@@ -1,0 +1,47 @@
+
+     .checkout-item__image{
+        max-height: 80px;
+        max-width: 100%;
+      }
+  
+     .checkout-item__title{
+        font-weight: 700;
+        font-size: 18px;
+        margin-bottom: 35px;
+      }
+  
+  
+   .checkout__order-actions{
+      margin-top: 25px;
+    }
+  
+   .checkout__total{
+      font-size: 24px;
+      margin-top: 25px;
+  
+    }
+  
+ 
+  
+  .order-view{
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    padding: 0 15px;
+  }
+  
+.empty-page-message{
+      text-align: center;
+      margin: 150px auto;
+    }    
+      .empty-page-message__body{
+        margin-bottom: 25px;
+      }
+
+    .empty-page-icon{
+      font-size: 45px;
+      color: 'green';
+    }
+
+  
+  
+  
